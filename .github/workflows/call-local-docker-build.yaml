@@ -1,7 +1,9 @@
 ---
+# Example source: https://github.com/BretFisher/docker-build-workflow
 # THIS IS NOT A TEMPLATE.
-# This is just for testing the repo itself.
-# This calls the reusable workflow from its local file path.
+# This is just for linting the gha-workflows repo itself.
+# We call the reusable workflow from its file path.
+
 name: Docker Build
 
 on:

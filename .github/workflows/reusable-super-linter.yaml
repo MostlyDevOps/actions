@@ -1,11 +1,9 @@
 ---
-# original template from: https://github.com/bretfisher/super-linter-workflow/blob/main/.github/workflows/reusable-super-linter.yaml
+  # Example source: https://github.com/BretFisher/super-linter-workflow
+# THIS IS NOT A TEMPLATE.
+# This is just for linting the gha-workflows repo itself.
+# We call the reusable workflow from its file path.
 
-###########################
-###########################
-## Linter GitHub Actions ##
-###########################
-###########################
 name: Lint all the codes
 
 #

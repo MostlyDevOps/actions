@@ -1,5 +1,9 @@
 ---
 name: Docker Build and Push
+# Example source: https://github.com/BretFisher/docker-build-workflow
+# THIS IS NOT A TEMPLATE.
+# This is just for linting the gha-workflows repo itself.
+# We call the reusable workflow from its file path.
 
 on:
 
