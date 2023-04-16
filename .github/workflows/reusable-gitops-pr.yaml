@@ -32,7 +32,7 @@ on:
         type: string
       environments-root-dir:
         description: Root directory where all environment directories are located
-        required: true
+        required: false
         type: string
         default: environments
       environment-dir:
