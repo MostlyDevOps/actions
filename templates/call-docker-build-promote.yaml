@@ -73,19 +73,21 @@ jobs:
     needs: docker-build-pr
     uses: mostlydevops/actions/.github/workflows/reusable-gitops-pr.yaml
     secrets:
-      # github token with write access to the gitops repo
+      ## github token with write access to the gitops repo
       github-token: ${{ secrets.GITOPS_TOKEN }}
-      # OPTIONAL. If this has a value, it'll notify a slack channel after PR is created
+      ## OPTIONAL. If this has a value, it'll notify a slack channel after PR is created
       # slack-token: ${{ secrets.SLACK_BOT_TOKEN }}
     with:
       # your gitops repo
       repo: mostlydevops/wordsmith-k8s
-      # FIXME: change to the environment path
-      kustomize-path: environments/ENV_NAME
-      # the image you just built that you want to change the tag for
+      ## The environment dir path, defaults to `environments`
+      # environments-root-dir: environments
+      ## FIXME: change to the subdirector of `environments-root-dir` that contains the kustomization.yaml
+      environment-dir: production
+      ## the image you just built that you want to change the tag for
       image: ghcr.io/${{ github.repository }}
-      # we grab the tag output from the docker build, based on "priority"
-      # see the reusable workflow for details
+      ## we grab the tag output from the docker build, based on "priority"
+      ## see the reusable workflow for details
       tag: ${{ needs.docker-build-merge.outputs.image-tag }}
-      # OPTIONAL. Enable if slack-token is enabled above
+      ## OPTIONAL. Enable if slack-token is enabled above
       # slack-channel-id: ${{ vars.SLACK_CHANNEL_ID }}
