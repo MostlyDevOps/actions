@@ -75,7 +75,7 @@ jobs:
 
       - name: Change image tag and Ingress host in kustomization.yaml
         run: |
-          export INGRESS_HOST="web-pr-${{ inputs.pr-number }}-$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]').app.qa-gke.uffizzi.com"
+          export INGRESS_HOST="web-pr-${{ inputs.pr-number }}-$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]').app.uffizzi.com"
           cd ${{ inputs.environments-root-dir }}/${{ inputs.environment-dir }}
           kustomize edit set image "$(echo '${{ inputs.image }}' | tr '[:upper:]' '[:lower:]'):${{ inputs.tag }}"
           kustomize edit add patch --kind Ingress --name web --patch "[{\"op\": \"replace\", \"path\": \"/spec/tls/0/hosts/0\", \"value\": \"${INGRESS_HOST}\"}]"
